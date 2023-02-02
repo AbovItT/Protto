@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply overflow-x-hidden
+}
+
+.header-link{
+    @apply text-base first:font-pixeboy font-montserrat font-bold border-transparent border-b-4 text-white h-full hover:text-linkColor transition-all duration-300 hover:border-b-2 hover:border-linkColor  box-border
+}
+
+.schedule__btn {
+    @apply bg-linkColor px-4 py-2 max-xl:w-40 text-white font-montserrat rounded-sm font-bold border-b-4 border-transparent h-full transition-all duration-300 hover:border-linkColor hover:bg-white hover:text-linkColor
+}
+
+.hoverable {
+    @apply static 
+}
+
+.mega-menu {
+    @apply hidden left-0 absolute text-left w-full
+}
+
+.hoverable a { 
+    @apply relative top-[0px] after:content-['\25BC'] after:text-2xl after:top-[0px] after:relative after:right-0 after:max-xl:hidden
+}
+
+.hoverable:hover .mega-menu {
+    @apply block max-xl:hidden
+}
+
+.protto__link {
+    @apply bg-prottoBG hover:bg-prottoHover transition-all duration-300 py-5 px-20 font-montserrat flex justify-center text-white rounded-lg max-md:text-sm
+}
+
+.protto__span {
+    @apply text-linkColor ml-1 font-bold flex transition-all duration-300 
+}
+
+.protto__link:hover .protto__span {
+    @apply text-white 
+}
+
+.accordion-content {
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+}
+
+.protto__bgimg{
+    @apply bg-white bg-[url(/public/images/background1531-300x220.png)] bg-[bottom_right] bg-no-repeat bg-[40%_auto];
+}
+
+@keyframes carouselAnim {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(calc(-100% + (4.3*300px)));
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container .carousel-items {
+        animation: carouselAnim 60s infinite alternate linear;
+    }
+    @keyframes carouselAnim {
+        from {
+        transform: translate(0, 0);
+        }
+        to {
+        transform: translate(calc(-100% + (5*300px)));
+        }
+    }
+}
+
+.carousel-focus:hover {
+    transition: all 0.8s;
+    transform: scale(1.1);
+}
+
+.fadeInLeft {
+    animation-name: fadeInLeft;
+    animation-duration: 1s;
+    transition: 0.25s all ease-in-out;
+    animation-fill-mode: forwards;
+    @apply opacity-0 
+}
+
+.fadeInRight {
+    animation-name: fadeInRight;
+    animation-duration: 1s;
+    transition: 0.25s all ease-in-out;
+    animation-fill-mode: forwards;
+    @apply opacity-0
+}
+
+@keyframes fadeInLeft {
+    from {
+      @apply opacity-0;  
+      transform: translate3d(-500px, 0, 0);
+    }
+    to {
+      @apply opacity-100;
+      transform: translate3d(0, 0, 0); 
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+      @apply opacity-0;  
+      transform: translate3d(500px, 0, 0);
+    }
+    to {
+      @apply opacity-100;
+      transform: translate3d(0, 0, 0); 
+    }
+}
+
+@layer base {
+    @font-face {
+        font-family: 'Pixeboy';
+        src: url('../public/fonts/Pixeboy-z8XGD.ttf'); 
+    }
+
+    @font-face {
+        font-family: 'Montserrat';
+        src: url('../public/fonts/montserrat/Montserrat-VariableFont_wght.ttf');
+    }
+}
